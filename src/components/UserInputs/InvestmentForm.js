@@ -1,5 +1,5 @@
 import React from "react";
-import '../assets/css/InvesmentForm.css'
+import '../../assets/css/InvesmentForm.css'
 
 const InvestmentForm = props =>{
     return <form className="form">

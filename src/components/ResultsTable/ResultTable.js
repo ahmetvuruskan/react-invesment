@@ -1,6 +1,9 @@
 import React from "react";
-
+import '../../assets/css/ResultTable.css'
 const ResultTable = props => {
+
+
+
     return <table className="result">
         <thead>
         <tr>

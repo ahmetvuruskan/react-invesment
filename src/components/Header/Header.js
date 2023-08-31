@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/investment-calculator-logo.png";
+import '../../assets/css/Header.css'
 
 const Header = props => {
     return <header className="header">
