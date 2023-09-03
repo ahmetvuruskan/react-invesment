@@ -56,3 +56,9 @@ button:hover {
     background: transparent;
     color: #91e1d0;
 }
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}

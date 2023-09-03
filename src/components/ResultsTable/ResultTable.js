@@ -1,8 +1,12 @@
 import React from "react";
 import '../../assets/css/ResultTable.css'
+const formatter = new Intl.NumberFormat('tr-TR', {
+    style: 'currency',
+    currency: 'TRY',
+    minimumFractionDigits:2,
+    maximumFractionDigits:2,
+});
 const ResultTable = props => {
-
-
 
     return <table className="result">
         <thead>
@@ -15,13 +19,16 @@ const ResultTable = props => {
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>YEAR NUMBER</td>
-            <td>TOTAL SAVINGS END OF YEAR</td>
-            <td>INTEREST GAINED IN YEAR</td>
-            <td>TOTAL INTEREST GAINED</td>
-            <td>TOTAL INVESTED CAPITAL</td>
-        </tr>
+        {props.yearlyData.map((yearlyData) => {
+           return <tr key={yearlyData.year}>
+                <td>{yearlyData.year}</td>
+                <td>{formatter.format(yearlyData.savingsEndOfYear)}</td>
+                <td>{formatter.format(yearlyData.yearlyInterest)}</td>
+                <td>{formatter.format(yearlyData.savingsEndOfYear - props.initialInvesment - yearlyData.yearlyContribution * yearlyData.year)}</td>
+                <td>{formatter.format(props.initialInvesment + yearlyData.yearlyContribution * yearlyData.year)}</td>
+            </tr>
+        })}
+
         </tbody>
     </table>
 }
